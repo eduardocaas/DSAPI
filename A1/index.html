@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1</title>
+
+    <style>
+        body {
+            background-color: rgb(36, 36, 36);
+            color: white;
+            font-size: 30px;
+            font-family: "Consolas";
+        }
+    </style>
+</head>
+<body>
+
+   <div id="teste">
+    <button onclick="func('Teste')">Teste</button>
+    <button onclick="limpar()">Limpar</button>
+   </div>
+   <div id="texto"></div>
+
+   <p>
+    <button onclick="cont(true)">Add</button>
+    <button onclick="cont(false)">Dim</button>
+    <button onclick="resetar()">Resetar</button>
+    <button onclick="limpar2()">Limpar</button>
+    <div id="num">Contador 0</div>
+   </p>
+
+   <script>
+        let bool = false;
+        let txt = document.getElementById('texto');
+        function func(text) {
+            console.log('click');
+            if(bool == false ){
+            txt.innerHTML = text;
+            bool = true;
+            }
+            else {
+                txt.innerHTML = text + "2";
+                bool = false;
+            }
+        }
+
+        function limpar() {
+            txt.innerHTML = '';
+        }
+
+        let num = document.getElementById('num');
+        let ct = 0;
+        function cont(vr){
+            if(vr){
+                ct++;
+                num.innerHTML = 'Contador ' + ct;
+            }
+            else {
+                ct--;
+                num.innerHTML = 'Contador ' + ct;
+            }
+        }
+
+        function resetar() {
+            ct = 0;
+            num.innerHTML = 'Contador ' + ct;
+        }
+
+        function limpar2() {
+            num.innerHTML = '';
+        }
+   </script>
+
+   <br>
+   <input type="text" id="txtNome" placeholder="Nome Produto">
+   <input type="number" id="txtPreco" placeholder="Preço Produto">
+   <button onclick="adicionar()">Adicionar</button>
+   <button onclick="limpar3()">Limpar</button>
+   <ol style="margin-left: 15px;" id="txtProd"></ol>
+   </table>
+
+   <script>
+    let txtProd = document.getElementById('txtProd');
+    function adicionar() {
+        var txtNome = document.getElementById('txtNome');
+        var txtPreco = document.getElementById('txtPreco');
+        var preco = txtPreco.value;
+
+        if(preco < 0){
+            preco = 'Valor inválido';
+        }
+
+        var nome = txtNome.value;
+        txtProd.innerHTML += '<li>' + nome + ' - ' + preco + '</li>';
+
+        txtPreco.value = '';
+        txtNome.value = '';
+    }
+
+    function limpar3() { 
+        txtProd.innerHTML = '';
+    }
+   </script>
+
+</body>
+</html>

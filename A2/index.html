@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2</title>
+
+    <style>
+        body {
+            background-color: rgb(36, 36, 36);
+            color: white;
+            font-size: 20px;
+            font-family: "Consolas";
+        }
+
+        .inp1 {
+            width: 200px;
+            height: 30px;
+            border: 0;
+        }
+
+        .inp2 {
+            width: 100px;
+            height: 32px;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="form1" action="save.php" onsubmit="return validar()">
+        <input class="inp1" type="text" id="fVal" placeholder="Nome">
+        <input class="inp2" type="submit" value="Salvar">
+    </form>
+    <p id="pInfo"></p>
+
+    <hr>
+
+    <p id="objeto"></p>
+    <button onclick="lerObjeto()">Ler Objeto</button>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "nome": "Fulano",
+    "idade": 30,
+    "altura": 1.85,
+    "aluno": true,
+    "formaturas": [2004, 2010, 2016],
+    "cursos": ["Técnico", "Graduação"],
+    "cnh": { "numero": "123456" , "categoria": "B"},
+    "filhos" : [
+        { "nome": "Beltrano", "idade": 10},
+        { "nome": "Ciclano", "idade": 12}
+    ],
+    "endereco": null 
+}

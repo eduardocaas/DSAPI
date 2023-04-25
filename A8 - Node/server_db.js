@@ -13,7 +13,6 @@ conn.connect(function(error){
         conn.query(sql, function(err, result, fields){
             if(!err){
                 console.log(result);
-                console.log(fields);
             } 
             else {
                 console.log(err);

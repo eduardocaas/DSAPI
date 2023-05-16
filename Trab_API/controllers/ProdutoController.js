@@ -15,6 +15,15 @@ function getProdutos(req, res, next) {
     });
 }
 
+function postProdutos(req, res, next) {
+  knex('produtos')
+    .insert(req.body)
+    .then(() => {
+        res.send("Produto " + req.body.nome + " adicionado");
+    }, next);
+};
+
 module.exports = {
-  getProdutos
+  getProdutos,
+  postProdutos
 };

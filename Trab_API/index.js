@@ -36,6 +36,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/produtos', produtoController.getProdutos);
+app.post('/produtos', produtoController.postProdutos);
 app.get('/categorias', categoriaController.getCategorias);
 app.get('/pedidos', pedidoController.getPedidos);
 app.get('/cidades', cidadeController.getCidades);

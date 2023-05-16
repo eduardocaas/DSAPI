@@ -52,5 +52,6 @@ CREATE TABLE pedidos_produtos (
 );
 
 
-INSERT INTO categorias VALUES (null, "Bebidas")
+INSERT INTO categorias VALUES (null, "Bebidas");
+INSERT INTO cidades VALUES (null, "Porto Alegre");
 

@@ -1,15 +1,6 @@
 CREATE DATABASE loja_dsapi;
 USE loja_dsapi;
 
-CREATE TABLE produtos (
-	id int not null auto_increment,
-    nome varchar(100) not null,
-    preco double,
-    quantidade double,
-    categoria_id int,
-	primary key (id),
-    foreign key(categoria_id) references categorias(id)
-);
 
 CREATE TABLE categorias(
 	id int not null auto_increment,
@@ -21,6 +12,16 @@ CREATE TABLE cidades (
 	id int not null auto_increment,
     nome varchar(100) not null,
     primary key (id)
+);
+
+CREATE TABLE produtos (
+	id int not null auto_increment,
+    nome varchar(100) not null,
+    preco double,
+    quantidade double,
+    categoria_id int,
+	primary key (id),
+    foreign key(categoria_id) references categorias(id)
 );
 
 CREATE TABLE clientes (

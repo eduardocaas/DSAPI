@@ -8,14 +8,34 @@ var knex = require('knex')({
   }
 });
 
-function getProdutos(req, res, next) {
+function getAll(req, res, next) {
   knex('produtos')
     .then(data => {
       res.send(data);
     });
 }
 
-function postProdutos(req, res, next) {
+function getById(req, res, next) {
+  const id = req.params.id;
+  knex('produtos')
+    .where('id', id)
+    .first()
+    .then(data => {
+      if(data) {
+        res.send(200, data);
+      }
+      else {
+        res.send(404, {message: 'Produto não encontrado'});
+      }
+      return next();
+    })
+    .catch((error) => {
+      res.send(500, {message: 'Erro ao buscar produto', error: error});
+      return next();
+    })
+}
+
+function save(req, res, next) {
   knex('produtos')
     .insert(req.body)
     .then(() => {
@@ -24,6 +44,7 @@ function postProdutos(req, res, next) {
 };
 
 module.exports = {
-  getProdutos,
-  postProdutos
+  getAll,
+  getById,
+  save
 };

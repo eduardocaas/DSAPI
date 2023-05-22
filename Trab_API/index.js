@@ -35,8 +35,9 @@ app.get('/', (req, res, next) => {
   res.send("Página inicial");
 });
 
-app.get('/produtos', produtoController.getProdutos);
-app.post('/produtos', produtoController.postProdutos);
+app.get('/produtos', produtoController.getAll);
+app.get('/produtos/:id', produtoController.getById);
+app.post('/produtos', produtoController.save);
 app.get('/categorias', categoriaController.getCategorias);
 app.get('/pedidos', pedidoController.getPedidos);
 app.get('/cidades', cidadeController.getCidades);

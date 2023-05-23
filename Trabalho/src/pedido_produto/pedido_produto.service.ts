@@ -2,7 +2,17 @@ import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PedidoProduto } from './pedido_produto.entity';
 import { PedidoProdutoRepository } from './pedido_produto.repository';
-import { FindOneOptions } from 'typeorm';
+import { FindManyOptions, FindOneOptions } from 'typeorm';
+
+var knex = require("knex")({
+  client : 'mysql',
+  connection : {
+      host : 'localhost',
+      user : 'root',
+      password : '',
+      database : 'loja_dsapi'
+  }
+});
 
 @Injectable()
 export class PedidoProdutoService {
@@ -20,8 +30,9 @@ export class PedidoProdutoService {
     return this.pedidoProdutoRepository.findOne(options);
   }
 
-  async save(pedidoProduto: PedidoProduto): Promise<PedidoProduto> {
-    return this.pedidoProdutoRepository.save(pedidoProduto);
+  async save(pedidoProduto: PedidoProduto): Promise<void> {
+    knex('pedidos_produtos')
+    .insert(pedidoProduto)
   }
 
   async update(pedidoProduto: PedidoProduto): Promise<PedidoProduto> {
@@ -31,5 +42,5 @@ export class PedidoProdutoService {
     return null;
   }
 
-
+ 
 }

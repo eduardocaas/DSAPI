@@ -29,6 +29,7 @@ const categoriaController = require('./controllers/CategoriaController');
 const pedidoController = require('./controllers/PedidoController');
 const cidadeController = require('./controllers/CidadeController');
 const clienteController = require('./controllers/ClienteController');
+const pedirController = require('./controllers/PedirController');
 
 
 app.get('/', (req, res, next) => {
@@ -42,5 +43,6 @@ app.get('/categorias', categoriaController.getCategorias);
 app.get('/pedidos', pedidoController.getPedidos);
 app.get('/cidades', cidadeController.getCidades);
 app.get('/clientes', clienteController.getClientes);
+app.post('/pedidos/pedir', pedirController.savePedido);
 
 

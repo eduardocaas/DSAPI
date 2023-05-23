@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PedidoProduto } from './pedido_produto.entity';
 import { PedidoProdutoRepository } from './pedido_produto.repository';
@@ -22,6 +22,13 @@ export class PedidoProdutoService {
 
   async save(pedidoProduto: PedidoProduto): Promise<PedidoProduto> {
     return this.pedidoProdutoRepository.save(pedidoProduto);
+  }
+
+  async update(pedidoProduto: PedidoProduto): Promise<PedidoProduto> {
+    if(pedidoProduto.pedido_id != null, pedidoProduto.produto_id != null) {
+      return this.pedidoProdutoRepository.save(pedidoProduto);
+    }
+    return null;
   }
 
 

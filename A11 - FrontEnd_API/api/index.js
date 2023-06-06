@@ -1,5 +1,10 @@
 const restify = require("restify");
 const errors = require("restify-errors");
+const corsMiddleware = require('restify-cors-middleware2');
+
+const cors = corsMiddleware({
+    origins: ["*"],
+});
 
 const app = restify.createServer({
     name : 'loja',
@@ -9,8 +14,10 @@ const app = restify.createServer({
 app.use(restify.plugins.acceptParser(app.acceptable));
 app.use(restify.plugins.queryParser());
 app.use(restify.plugins.bodyParser());
+app.pre(cors.preflight);
+app.use(cors.actual);
 
-app.use(
+/*app.use(
     function crossOrigin(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -18,7 +25,8 @@ app.use(
       res.header('Access-Control-Allow-Credentials', false);
       return next();
     }
-  );
+  ); */
+
 app.listen(8001, function(){
     console.log('app %s running in %s', app.name, app.url);
 });

@@ -15,7 +15,7 @@
 
 <body style="background: #6190e8; background: linear-gradient(to right, #6190e8, #a7bfe8);">
     <div style="width: 500px; margin: 100px auto 50px auto; padding: 20px; background-color: rgb(241, 241, 241);">
-        <form action="http://localhost:8001/produtos" method="post">
+        <form>
             <legend>Cadastro de produtos</legend>
             <div class="mb-3">
                 <label for="formNome" class="form-label">Nome</label>
@@ -29,7 +29,7 @@
                 <label for="formQntd" class="form-label">Quantidade</label>
                 <input type="number" name="quantidade" class="form-control" id="formQntd">
             </div>
-            <button type="submit" value="Salvar" class="btn btn-primary">Salvar</button>
+            <button type="button" onclick="add()" value="Salvar" class="btn btn-primary">Salvar</button>
         </form>
     </div>
 
@@ -49,22 +49,25 @@
         </table>
     </div> -->
 
-    <div id="status"></div>       
-    <button type="button" id="btnAtualizar" onclick="ler()" class="btn btn-primary">Atualizar</button>
-    <table id="tabela">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Qntd</th>
-        </tr>        
+    <div id="status"></div>
+    <div style="width: 500px; margin: 0 auto; padding: 20px; background-color: rgb(241, 241, 241);">
+        <button type="button" id="btnAtualizar" onclick="ler()" class="btn btn-primary">Atualizar</button>
+        <table id="tabela" class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Qntd</th>
+                <th>Ação</th>
+            </tr>
+        </table>
+    </div>
 
-    </table>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="index.js">
-    
+
 
 </script>
 

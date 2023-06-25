@@ -1,0 +1,2 @@
+npm i express axios cors dotenv query-string
+npm i -D nodemon
